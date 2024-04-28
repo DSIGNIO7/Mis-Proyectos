@@ -1,0 +1,543 @@
+:root{
+    --verde: #73ff00;
+    --azul: #0400ff;
+    --blanco: #fff;
+    --azulclaro: rgb(0, 238, 255);
+    --mandarina: #ffd900;
+    --rojo: #881014;
+    --oscuro: #000;
+    --titulos: "Arima Madurai",cursive;
+    --parrafos: "Mulish", sans-serif;
+}
+html{
+    box-sizing: border-box;
+    /* 1rem = 10px */
+    font-size: 52.5%;
+}
+body{
+    font-size: 1.6rem;
+    overflow-x: hidden;
+}
+
+*,*::after, *::before{
+    box-sizing: inherit;
+}
+
+/* ---- ----- ----- Espacios Globales ----- ----- ----- */
+.contenedor{
+    max-width: 120rem;
+    margin: auto;
+    width: 95%;
+}
+h1,h2{
+    font-family: var(--titulos);
+}
+h3, p, a{
+    font-family: var(--parrafos);
+}
+
+img{
+    max-width: 100%;
+}
+.verde{
+    color: var(--verde);
+}
+.rojo{
+    color: var(--rojo);
+}
+.azul{
+    color: var(--azul);
+}
+.ocultar{
+    display: none;
+}
+.btn-cerrar{
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--blanco);
+    position: absolute;
+    top: 0;
+    right: 50px;
+    user-select: none;   
+}
+.pantalla-completa{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.05);
+    z-index: 4;
+}
+
+@keyframes desplazamiento{
+    0%{
+        transform: translateX(100%);
+    }
+    100%{
+        transform:translateX(0);
+    }
+}
+
+.btn-cerrar:hover{
+    cursor: pointer;
+}
+.btn{
+    text-decoration: none;
+    color: var(--blanco);
+    font-size: 2rem;
+    text-transform: capitalize;
+    padding: 1rem 3rem;
+    border: 4px solid var(--blanco);
+    transition: all .3s ease-in-out;
+}
+
+@media(min-width: 768px){
+    .btn{
+        font-size: 2.2rem;
+    }
+}
+
+.bordes{
+    border: 2px solid var(--blanco);
+}
+@media(min-width: 768px) {
+    .bordes{
+        border: 4px solid var(--blanco);
+    }
+}
+
+/* ---- Cursor Sobre el Boton se ilumina fondo de blanco y letras verdes ----- */
+.bordes:hover{
+    color: var(--verde);
+    background-color: var(--blanco);
+}
+/* ---- Boton Rojo de Conectar ----- */
+.btn-rojo{
+    background-color: var(--rojo);
+    font-weight: bold;
+    display: inline-block; 
+    margin-top: 2rem; 
+    margin-bottom: 2rem;  
+}
+
+/* ---- ----- ----- Encabezado ----- ----- ----- */
+.contenedor-navegacion{
+    background-color: aqua;
+    position: relative;
+    z-index: 5;
+}
+
+.contenido-navegacion{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo h2, .navegacion a {
+    color: var(--rojo);
+}
+.logo h2{
+    font-size: 3rem;
+}
+
+/* ---- ----- En Movil ----- ----- */
+.navegacion a{
+    text-decoration: none;
+    font-size: 2.2rem;
+    padding: 1.5rem;
+    padding-left: 4rem;
+    display: block;
+    transition: color .3s ease-in-out;
+    text-align: center;
+}
+
+/* ---- ----- Mediacuery en Tablet y Escritorio ----- ----- */
+@media(min-width: 768px){
+    .navegacion a{
+        text-align: left;
+    }
+}
+
+.navegacion a:nth-child(even):hover{
+    color: var(--mandarina);
+}
+.navegacion a:nth-child(odd):hover{
+    color: var(--verde);
+}
+.navegacion a:first-of-type{
+    margin-top: 5rem;
+}
+
+/* ---- contenido y fondo Desplegable del Menú Hambuerguesa ----- */
+.navegacion{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    height: 100vh;
+    width: 40rem;
+    padding: 3rem 4rem;
+    background-color: rgba(9, 194, 207, 0.95);
+    animation: desplazamiento .5s ease-in-out;
+}
+ 
+/* -- Cursor se coloca una manito -- */
+.IconoHamburg:hover{
+    cursor: pointer;
+}
+
+.IconoHamburg span{
+    background-color: var(--rojo);
+    display: block;
+    width: 5rem;
+    height: .5rem;
+    margin-bottom: 0.4rem;
+}
+
+/* -- Video Encabezado -- */
+.contenido-header{
+    position: relative;
+}
+
+/* -- ---Video encabezado---  -- */
+video{
+    width: 100%;
+    height: 100%;
+}
+
+.contenido-header::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,.5);
+}
+
+/* -- Texto Encabezado -- */
+.texto-encabezado{
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* -- Tex Responsive Movil  -- */
+.texto-encabezado h2{
+    color: var(--blanco);
+    font-size: 3rem;
+}
+
+/* -- Tex Responsive Tablet  -- */
+@media(min-width: 768px) {
+    .texto-encabezado h2{
+        font-size: 8rem;
+    }
+}
+
+
+/* -- ---Sobre Nosotros---  -- */
+.contenedor-nosotros{
+    padding-top: 3rem;
+}
+/* -- Tex Responsive Movil  -- */
+@media(min-width: 768px) {
+    .contenedor-nosotros{
+        display: flex;
+        justify-content: space-between;
+    }
+}
+.texto-nosotros, .imagenes-favoritos{
+    flex: 0 0 calc(50% - 1rem);
+}
+.texto-nosotros .bienvenida{
+    font-size: 4rem;
+    color: var(--verde);
+    text-align: center;
+}
+.texto-nosotros h1{
+    font-size: 5rem;
+    text-align: center;
+}
+/* -- Tex Responsive Tablet  -- */
+@media(min-width: 768px) {
+    .texto-nosotros h1{
+    text-align: left; 
+    }   
+}
+.texto-nosotros p{
+    font-size: 2rem;
+    text-align: center;
+}
+@media(min-width: 768px) {
+    .texto-nosotros p{
+        text-align: left;
+    }   
+}
+
+/* ---- ----- ----- Imagenes a la Derecha ----- ----- ----- */
+.imagenes-favoritos{
+    display: flex;
+    justify-content: space-between;
+}
+.imagenes-favoritos img{
+    border-radius: 5px;
+}
+.imagen1, .imagenes2{
+    flex: 0 0 calc(50% - 1rem);
+}  
+
+/* ---- ----- ----- Contenedor Titulo y Controles ----- ----- ----- */
+.contenedor-titulo-controles {
+	display: flex;
+	justify-content: space-between;
+	align-items: end;
+}
+
+.contenedor-titulo-controles h1 {
+	color: hsl(258, 43%, 55%);
+	font-size: 30px;
+}
+
+.contenedor-titulo-controles .indicadores button {
+	background: #6062cc;
+	height: 3px;
+	width: 10px;
+	cursor: pointer;
+	border: none;
+	margin-right: 2px;
+}
+
+.contenedor-titulo-controles .indicadores button:hover,
+.contenedor-titulo-controles .indicadores button.activo {
+	background: rgb(100, 0, 0);
+}
+
+
+/* ---- ----- ----- Contenedor Principal y Flechas ----- ----- ----- */
+.sitios-recomendados {
+	margin-bottom: 70px;
+}
+
+.sitios-recomendados .contenedor-principal {
+	display: flex;
+	align-items: center;
+	position: relative;
+}
+
+.sitios-recomendados .contenedor-principal .flecha-izquierda,
+.sitios-recomendados .contenedor-principal .flecha-derecha {
+	position: absolute;
+	border: none;
+	background: rgba(0,0,0,0.3);
+	font-size: 40px;
+	height: 50%;
+	top: calc(50% - 25%);
+	line-height: 40px;
+	width: 50px;
+	color: #f8f9fd;
+	cursor: pointer;
+	z-index: 500;
+	transition: .2s ease all;
+}
+
+/* ---- ----- ----- Media Queries  resposive ----- ----- ----- */
+@media screen and (max-width: 800px) {
+	header .contenedor-carousel {
+		flex-direction: column;
+		text-align: center;
+	}
+
+	.lugares-recomendado {
+		max-width: 100%;
+	}
+	.lugares-recomendado .contenedor-carousel {
+		overflow: visible;
+	}
+	.lugares-recomendado .contenedor-carousel .carousel {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 20px;
+	}
+	.lugares-recomendado .indicadores,
+	.lugares-recomendado .flecha-izquierda,
+	.lugares-recomendado .flecha-derecha {
+		display: none;
+	}
+}
+
+.sitios-recomendados .contenedor-principal .flecha-izquierda:hover,
+.sitios-recomendados .contenedor-principal .flecha-derecha:hover {
+	background: rgba(237, 243, 247, 0.9);
+}
+
+.sitios-recomendados .contenedor-principal .flecha-izquierda {
+	left: 0;
+}
+
+.sitios-recomendados .contenedor-principal .flecha-derecha {
+	right: 0;
+}
+
+/* ---- ----- ----- Carousel ----- ----- ----- */
+.sitios-recomendados .contenedor-carousel {
+	width: 100%;
+	padding: 20px 0;
+	overflow: hidden;
+	scroll-behavior: smooth;
+}
+
+.sitios-recomendados .contenedor-carousel .carousel {
+	display: flex;
+	flex-wrap: nowrap;
+}
+
+.sitios-recomendados .contenedor-carousel .carousel .paisaje {
+	min-width: 20%;
+	transition: .3s ease all;
+	box-shadow: 5px 5px 10px rgba(0,0,0, .3);
+}
+
+.sitios-recomendados .contenedor-carousel .carousel .paisaje.hover {
+	transform: scale(1.2);
+	transform-origin: center;
+}
+
+.sitios-recomendados .contenedor-carousel .carousel .paisaje img  {
+	width: 100%;
+	vertical-align: top;
+}
+
+/* ---- ----- ----- Media Queries ----- ----- ----- */
+@media screen and (max-width: 800px) {
+	header .logotipo {
+		margin-bottom: 10px;
+		font-size: 30px;
+	}
+
+	header .contenedor {
+		flex-direction: column;
+		text-align: center;
+	}
+
+
+	.sitios-recomendados .contenedor-carousel {
+		overflow: visible;
+	}
+
+	.sitios-recomendados .contenedor-carousel .carousel {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 20px;
+	}
+
+	.sitios-recomendados .indicadores,
+	.sitios-recomendados .flecha-izquierda,
+	.sitios-recomendados .flecha-derecha {
+		display: none;
+	}
+}
+
+/* ---- Text Zona De Camping ---- */
+.subtitulo{
+    color: hsl(258, 43%, 68%);
+    font-size: 40px;
+    text-align: center;
+    font-weight: 300;
+    margin-bottom: 30px;
+}
+
+/* ---- ----- Imagenes de Zona de Camping ----- ----- */
+.experts{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.cont-expert{
+    width: 30%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.cont-expert img{
+    display: block;
+    margin: auto;
+    width: 80%;
+}
+
+.n-expert{
+    width: 100%;
+    display: inline-block;
+    margin-top: 20px;
+    font-weight: 400;
+}
+
+/* ---- ----- Contenedor De Redes Sociales ----- ----- */
+footer{
+    background: #5ec7c7;
+    padding-bottom: 0.1px;
+}
+
+.footer-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-top: 60px;
+    padding-bottom: 40px;
+}
+
+
+/* ---- ----- Iconos Redes Sociales ----- ----- */
+.social-media i {
+    font-size: 20px;
+    display: inline-block;
+    color: #adb6c7;
+    border: 1px solid #adb6c7;
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    line-height: 36px;
+    cursor: pointer;
+    margin-top: 20px;
+    text-align: center;
+    transition: all ease-in-out .3s;
+    margin-right: 5px;
+}
+
+.social-media i:hover {
+    color: #fff;
+    background-color: #1FDE82;
+    border-color: #1FDE82;
+}
+
+.social-media-icon i{
+    font-size: 30px;
+    line-height: 60px;
+}
+
+/* ---- ----- Linea Blanca Redes Sociales ----- ----- */
+.line{
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    height: 2px;
+    background: #fff;
+    margin-bottom: 60px;
+}
+
+/* ---- ----- color iconos Redes Sociales ----- ----- */
+.social-media-icon:hover{
+    background: #fff;
+    color:rgb(31, 18, 221);
+}
+
+
